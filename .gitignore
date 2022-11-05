@@ -1,0 +1,4 @@
+.env
+dotenv
+package.json
+package-lock.json
