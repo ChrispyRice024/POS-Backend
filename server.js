@@ -2,7 +2,7 @@ const inquirer = import('inquirer');
 const express = require('express');
 const Models = require('./models');
 const routes = require('./controllers');
-const sequelize = require('./config/connection');
+const Sequelize = require('./config/connection');
 const app = express();
 const PORT = 3001;
 

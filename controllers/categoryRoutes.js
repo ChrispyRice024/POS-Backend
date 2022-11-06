@@ -21,12 +21,12 @@ router.post('/', async (req, res) => {
 
 router.put('/', async (req, res) => {
     try{
-        const catData = await Categories.update({req.body},
+        const catData = await Categories.update([{...req.body},
             {
                 where:{
                     cat_id: req.params.cat_id
                 }
-            })
+            }])
         res.status(200).json({msg:'Your PUT request has been completed.'})
     }catch(err){
         res.status(400).json({msg:'Your PUT request could not be completed'})
