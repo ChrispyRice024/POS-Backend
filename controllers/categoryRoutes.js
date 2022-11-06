@@ -3,8 +3,9 @@ const Categories = require('../models');
 
 router.get('/', async (req, res) => {
     try{
-        const catData = await Categories.findAll()
-        res.status(200).json({msg:'Categories have been loaded'})
+        const catData = await Categories.findAll().then((catData) => {
+            res.json(catData)
+        })
     }catch(err){
         res.status(400).json({msg:'Your GET request could not be completed.'})
     }
@@ -19,7 +20,7 @@ router.post('/', async (req, res) => {
     }
 })
 
-router.put('/', async (req, res) => {
+router.put('/:id', async (req, res) => {
     try{
         const catData = await Categories.update([{...req.body},
             {
@@ -32,3 +33,5 @@ router.put('/', async (req, res) => {
         res.status(400).json({msg:'Your PUT request could not be completed'})
     }
 })
+
+module.exports = router;

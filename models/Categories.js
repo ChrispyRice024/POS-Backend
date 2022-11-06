@@ -1,7 +1,7 @@
-const {Sequelize, Model, DataTypes} = require('Sequelize');
-const sequelize = import('../config/connection');
+const { Model, DataTypes } = require('sequelize');
+const sequelize = require('../config/connection');
 
-class Categories extends Sequelize.Model {}
+class Categories extends Model {}
 
 Categories.init(
     {
